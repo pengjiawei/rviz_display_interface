@@ -42,8 +42,8 @@ void DisplayInterface::displayPoseWithCovariance(const sgbot::Pose2D &pose,
     //initial covariance
     poseWithCovarianceStamped.pose.covariance[0] = covariance(0,0);//x and x
     poseWithCovarianceStamped.pose.covariance[1] = covariance(0,1);//x and y
-    poseWithCovarianceStamped.pose.covariance[6 + 1] = covariance(1,0);//y and x
-    poseWithCovarianceStamped.pose.covariance[6 + 2] = covariance(1,1);//y and y
+    poseWithCovarianceStamped.pose.covariance[6] = covariance(1,0);//y and x
+    poseWithCovarianceStamped.pose.covariance[6 + 1] = covariance(1,1);//y and y
 
     //R,P,Y
     poseWithCovarianceStamped.pose.covariance[5] = covariance(0,2);//x and theta

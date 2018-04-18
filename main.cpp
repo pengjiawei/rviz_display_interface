@@ -7,8 +7,9 @@ int main(int argc,char** argv) {
     std::string node_name = "display_interface";
     ros::init(argc,argv,node_name);
     DisplayInterface display;
-
-    ros::Duration d(5);
+    display.reset();
+    ros::Duration(2).sleep();
+    ros::Duration d(2);
 
     while(ros::ok()){
         //pose
@@ -17,11 +18,11 @@ int main(int argc,char** argv) {
 
         //pose with covariance
         sgbot::la::Matrix<float,3,3> matrix;
-        matrix(0,0) = 2;
-        matrix(0,1) = 5;
-        matrix(1,0) = 8;
-        matrix(1,1) = 1;
-        matrix(2,2) = 0;
+        matrix(0,0) = 3;
+//        matrix(0,1) = 30;
+//        matrix(1,0) = 30;
+        matrix(1,1) = 6;
+        matrix(2,2) = M_PI/2;
         display.displayPoseWithCovariance(pose,matrix);
 
         //point
